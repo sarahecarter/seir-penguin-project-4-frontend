@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# Flashcard App
+#### By Sarah Carter
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Description
+This project is a flashcard app used for studying. Users can add new terms and definitions to their library so that they can study up on what they are learning. They will also be able to edit and delete their cards.
 
-In the project directory, you can run:
+## Components
+- Header 
+- Main
+- Index
+- Show
+- Form
 
-### `npm start`
+## React Component Architecture
+```
+-> App
+  -> Header
+  -> Main |state: cards|
+    -> Routes
+      -> Route |path: "/"|
+        -> Index |Props: cards|
+      -> Route |path="/cards/:id"|
+        -> Show |Props: cards, getTargetCard, deleteCard|
+      -> Route |path="/edit"|
+        -> Form |Props: initialCard, updateCard, buttonLabel|
+      -> Route |path="/new"|
+        -> Form |Props: initialCard, addCard, buttonLabel|
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## React Router Route Table
+| URL | Component | Method | Action |
+|-----|-----------|--------|--------|
+| / | Index | get | displays all flashcards (index)||
+| /new | Index | post | adds a new flashcard (create) |
+| /cards/:id | Show | put | edits a flashcard (update) |
+| /cards/:id | Show | delete | deletes a flashcard (destroy) |
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## User Stories
+As a user, I can see a list of all my flashcards when I visit the page. \
+As a user, I can click on one of my flashcards and have it take me to a show page that displays details about the card. \
+As a user, I can add a new flashcard and see that it immediately loads on the page so that I know I successfully added a card. \
+As a user, I can delete a flashcard so I can keep my list relevant. \
+As a user, I can update a flashcard in case I made a typo. \
 
-### `npm test`
+## Technologies
+REACT, react-router-dom, Sass
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Bonus Features
+- If there is enough time, I would like to create a Study page where the user can enter a "study mode" that involves showing card terms. Users would be able to flip cards over by clicking a reveal button. A CSS keyframe animation would make the card appear to flip over and display the definition on the other side.
 
-### `npm run build`
+## Challenges
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Backend Details:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## DEPENDENCIES
+- Python
+- Masonite
+- Postgres
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## MODELS
+Flashcard:
+- term: string
+- definition: string
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## BACKEND ROUTE TABLE
+| url | method | action |
+|-----|--------|--------|
+| /cards | get | gets all flashcards (index)||
+| /cards | post | adds a new flashcard (create) |
+| /cards/:id | put | updates a flashcard (update) |
+| /cards/:id | delete | deletes a flashcard (destroy) |
