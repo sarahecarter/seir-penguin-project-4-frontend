@@ -11,6 +11,7 @@ This project is a flashcard app used for studying. Users can add new terms and d
 - Main
 - Index
 - Show
+- Card
 - Form
 
 ## React Component Architecture
