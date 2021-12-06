@@ -33,8 +33,8 @@ This project is a flashcard app used for studying. Users can add new terms and d
 | URL | Component | Method | Action |
 |-----|-----------|--------|--------|
 | / | Index | get | displays all flashcards (index)||
-| /new | Index | post | adds a new flashcard (create) |
-| /cards/:id | Show | put | edits a flashcard (update) |
+| /new | Form | post | adds a new flashcard (create) |
+| /edit | Form | put | edits a flashcard (update) |
 | /cards/:id | Show | delete | deletes a flashcard (destroy) |
 
 ## User Stories
