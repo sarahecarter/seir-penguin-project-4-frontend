@@ -44,7 +44,7 @@ As a user, I can see a list of all my flashcards when I visit the page. \
 As a user, I can click on one of my flashcards and have it take me to a show page that displays details about the card. \
 As a user, I can add a new flashcard and see that it immediately loads on the page so that I know I successfully added a card. \
 As a user, I can delete a flashcard so I can keep my list relevant. \
-As a user, I can update a flashcard in case I made a typo. \
+As a user, I can update a flashcard in case I made a typo. 
 
 ## Technologies
 REACT, react-router-dom, Sass
@@ -54,23 +54,4 @@ REACT, react-router-dom, Sass
 
 ## Challenges
 
-# Backend Details:
 
-## DEPENDENCIES
-- Python
-- Masonite
-- Postgres
-
-## MODELS
-Flashcard:
-- term: string
-- definition: string
-
-## BACKEND ROUTE TABLE
-| url | method | action |
-|-----|--------|--------|
-| /cards | get | gets all flashcards (index)||
-| /cards | post | adds a new flashcard (create) |
-| /cards/:id | get | shows a specific flashcard (show) |
-| /cards/:id | put | updates a flashcard (update) |
-| /cards/:id | delete | deletes a flashcard (destroy) |
