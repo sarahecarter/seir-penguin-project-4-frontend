@@ -94,9 +94,8 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
+    <div className="app">
       <Header/>
-      <Link to="/new"><button>Add a new flashcard</button></Link>
         <Routes>
           <Route path="/" element={<AllCards flashcards={flashcards}/>}></Route>
           <Route path="/flashcards/:id" element={<SingleCard 
@@ -112,7 +111,7 @@ function App() {
           <Route path="/edit" element={<Form
             initialFlashcard={targetFlashcard}
             handleSubmit={updateFlashcard}
-            buttonLabel="Edit card"
+            buttonLabel="Update card"
           />}/>
         </Routes>
       <Footer/>

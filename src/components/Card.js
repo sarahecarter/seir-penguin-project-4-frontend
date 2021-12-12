@@ -1,12 +1,11 @@
 import {Link} from "react-router-dom"
 
 const Card = ({flashcard}) => {
-    return <div className="card">
-        <Link to={`/flashcards/${flashcard.id}`}>
-            <h1>{flashcard.term}</h1>
+    return <Link to={`/flashcards/${flashcard.id}`} className="card">
+            <h2>{flashcard.term}</h2>
+            <h4>{flashcard.definition}</h4>
         </Link>
-        <h2>{flashcard.definition}</h2>
-    </div>
+
 }
 
 export default Card

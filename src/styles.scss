@@ -1,0 +1,333 @@
+//////////////////////
+// Imports
+//////////////////////
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap');
+
+//////////////////////
+// Variables/ Mixins
+//////////////////////
+$title-font: 'Playfair Display', serif;
+$accent-color: black;
+
+@mixin body-font {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+@mixin body-font-bold {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+@mixin button {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: $accent-color;
+    color: white;
+    border: none;
+    @include body-font();
+}
+
+@mixin card {
+    color: black;
+    border: 1px solid $accent-color;
+    margin: 10px;
+    border-radius: 6px;
+    padding: 10px;
+}
+
+//////////////////////
+// Base Styles
+//////////////////////
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.return {
+    @include button();
+    display: block;
+    margin: auto;
+}
+
+//////////////////////
+// Header
+//////////////////////
+header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    margin: 20px;
+
+    h1 {
+        margin-bottom: 10px;
+        font-family: $title-font;
+        font-size: 2em;
+        color: black;
+        z-index: 20;
+    }
+
+    i {
+        font-size: 1.6em;
+        cursor: pointer;
+    }
+}
+
+nav {
+    @include body-font();
+    flex-basis: 100%;
+    display: none;
+
+    a {
+        color: black;
+        cursor: pointer;
+        margin: 5px;
+        width: 100%;
+    }
+
+    ul {
+        list-style-type: none;
+    }
+
+}
+
+.showMenu {
+    display: block;
+    animation: slide 1s;
+}
+
+
+@keyframes slide {
+    0% {
+        transform: translateY(-40px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0%);
+        opacity: 100;
+    }
+}
+
+//////////////////////
+// Index Page
+//////////////////////
+
+.card-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add {
+    @include button();
+    display: block;
+    margin: 10px;
+    height: 30px;
+    width: 30px;
+}
+
+select {
+    display: block;
+    height: 30px;
+    width: 50%;
+    max-width: 250px;
+    text-align: center;
+    @include body-font();
+}
+
+.card { 
+    @include card();
+    width: 80%;
+
+    h2 {
+        @include body-font-bold();
+        font-size: 1.2em;
+        margin: 8px;
+    }
+
+    a {
+        color: black;
+    }
+
+    h4 {
+        @include body-font();
+        margin: 8px;
+    }
+}
+
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+//////////////////////
+// Show Page
+//////////////////////
+.single-card {
+    @include card();
+    margin: 20px;
+    width: 90%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h2 {
+        @include body-font-bold();
+        margin-bottom: 20px;
+    }
+
+    h4 {
+        @include body-font();
+    }
+
+    .card-btns {
+        display: flex;
+        justify-content: center;
+        margin: 10px;
+    
+        button {
+            @include button();
+            margin: 5px;
+            font-size: 1.1em;
+            text-align: center;
+            width: 30px;
+        }
+    }
+}
+
+
+//////////////////////
+// Form
+//////////////////////
+form {
+    margin: 20px auto;
+    max-width: 550px;
+
+
+    label {
+        @include body-font-bold();
+        margin: 5px;
+    }
+
+    input, textarea {
+        @include body-font();
+        padding: 5px;
+    }
+
+    textarea {
+        height: 70px;
+    }
+
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+    }
+
+    input[type="submit"] {
+        @include button();
+        display: block;
+        margin: auto;
+        cursor: pointer;
+    }
+}
+
+//////////////////////
+// Footer
+//////////////////////
+footer {
+    text-align: center;
+    margin: 5% auto;
+    width: 100%;
+
+    p {
+        @include body-font();
+        font-size: 0.8em;
+    }
+
+    a {
+        color: black;
+    }
+
+}
+
+//////////////////////
+// Media Queries
+//////////////////////
+@media screen and (min-width: 500px) {
+    .single-card {
+        width: 450px;
+        margin: 20px auto;
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+
+    header {
+        i.fas {
+            display: none;
+        }
+
+        nav {
+            display: block;
+            flex-basis: 0%;
+
+            ul {
+                display: flex;
+                justify-content: space-between;
+
+                li {
+                    margin: 5px 20px;
+                }
+            }
+        }
+    }
+
+    .card {
+        width: 500px;
+        display: flex;
+        justify-content: space-between;
+        min-height: 150px;
+        font-size: 1.1em;
+
+        h2 {
+            flex-basis: 30%;
+            border-right: 1px solid black;
+        }
+
+        h4 {
+            flex-basis: 70%;
+        }
+    }
+
+    .single-card {
+        width: 550px;
+        margin: 20px auto;
+    }
+
+    .cards-container {
+        max-width: 950px;
+        padding: 15px;
+        margin: auto;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+
+}

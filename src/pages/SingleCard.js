@@ -9,12 +9,19 @@ const SingleCard = ({flashcards, edit, deleteFlashcard}) => {
     const flashcard = flashcards.find((card) => card.id === id)
 
     return <div>
-        <h1>{flashcard.term}</h1>
-        <h2>{flashcard.definition}</h2>
-        <button onClick={() => edit(flashcard)}>Edit Card</button>
-        <button onClick={() => deleteFlashcard(flashcard)}>Delete Card</button>
+        <div className="single-card">
+            <div>
+                <h2>{flashcard?.term}</h2>
+                <h4>{flashcard?.definition}</h4>
+            </div>
+
+            <div className="card-btns">
+                <button onClick={() => edit(flashcard)}><i class="fas fa-pen"></i></button>
+                <button onClick={() => deleteFlashcard(flashcard)}><i class="far fa-trash-alt"></i></button>
+            </div>
+        </div>
         <Link to="/">
-            <button>Return to Main List</button>
+            <button className="return">Return to Main List</button>
         </Link>
     </div>
 }
