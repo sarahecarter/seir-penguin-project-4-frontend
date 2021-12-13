@@ -12,8 +12,6 @@ const Header = () => {
         menuOpen === true ? setMenuOpen(false) : setMenuOpen(true)
     }
 
-
-
     return <header>
         <Link to="/">
             <h1>Flashy</h1>

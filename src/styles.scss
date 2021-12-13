@@ -295,6 +295,22 @@ form {
     flex-direction: column;
     align-items: center;
 
+    h2 {
+        @include body-font-bold();
+        color: $accent-color;
+    }
+
+    .study-btns {
+        margin: 10px auto 30px;
+    }
+
+    .study-option {
+        @include button();
+        background-color: $tertiary-color;
+        color: $accent-color;
+        margin: 5px;
+    }
+
     .flip-card {
         background-color: transparent;
         width: 300px;
@@ -311,7 +327,6 @@ form {
         transition: transform 1s;
         transform-style: preserve-3d;
     }
-
 
     .flip-card:hover .flip-card-inner {
         transform: rotateY(180deg);
