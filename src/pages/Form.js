@@ -1,8 +1,9 @@
 import { useState } from "react"
 import { useNavigate } from "react-router"
 import { Link } from "react-router-dom"
+import Dropdown from "../components/Dropdown"
 
-const Form = ({initialFlashcard, handleSubmit, buttonLabel}) => {
+const Form = ({initialFlashcard, handleSubmit, buttonLabel, flashcards}) => {
     const navigate = useNavigate()
 
     //////////////////////////////

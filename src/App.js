@@ -34,6 +34,8 @@ function App() {
   // State to hold card topics 
   const [topics, setTopics] = useState([])
 
+  const [selectedTopic, setSelectedTopic] = useState()
+
   //////////////////////////////
   // Functions
   //////////////////////////////
@@ -89,6 +91,11 @@ function App() {
     navigate("/")
   }
 
+  // Updates the selectedTopic state from Dropdown component
+  const handleTopicChange = (e) => {
+    setSelectedTopic(e.target.value)
+  } 
+
   //////////////////////////////
   // useEffects
   //////////////////////////////
@@ -100,23 +107,37 @@ function App() {
     <div className="app">
       <Header/>
         <Routes>
-          <Route path="/" element={<AllCards flashcards={flashcards}/>}></Route>
+          <Route path="/" element={<AllCards 
+          flashcards={flashcards} 
+          selectedTopic={selectedTopic} 
+          handleTopicChange={handleTopicChange}
+          />}></Route>
           <Route path="/flashcards/:id" element={<SingleCard 
           flashcards={flashcards} 
           edit={getTargetFlashcard}
           deleteFlashcard={deleteFlashcard}
           />}/>
           <Route path="/new" element={<Form
+            flashcards={flashcards}
             initialFlashcard={nullFlashcard}
             handleSubmit={addFlashcard}
             buttonLabel="Add new flashcard"
+            selectedTopic={selectedTopic} 
+            handleTopicChange={handleTopicChange}
           />}/>
           <Route path="/edit" element={<Form
+            flashcards={flashcards}
             initialFlashcard={targetFlashcard}
             handleSubmit={updateFlashcard}
             buttonLabel="Update card"
+            selectedTopic={selectedTopic} 
+            handleTopicChange={handleTopicChange}
           />}/>
-          <Route path="/study" element={<Study flashcards={flashcards}/>}/>
+          <Route path="/study" element={<Study 
+          flashcards={flashcards}
+          selectedTopic={selectedTopic} 
+          handleTopicChange={handleTopicChange}
+          />}/>
         </Routes>
       <Footer/>
     </div>
