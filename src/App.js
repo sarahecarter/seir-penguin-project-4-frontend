@@ -116,7 +116,7 @@ function App() {
             handleSubmit={updateFlashcard}
             buttonLabel="Update card"
           />}/>
-          {/* <Route path="/study" element={<Study flashcards={flashcards}/>}/> */}
+          <Route path="/study" element={<Study flashcards={flashcards}/>}/>
         </Routes>
       <Footer/>
     </div>

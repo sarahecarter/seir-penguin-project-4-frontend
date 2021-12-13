@@ -16,7 +16,7 @@ const Header = () => {
 
     return <header>
         <Link to="/">
-            <h1>Flashcards</h1>
+            <h1>Flashy</h1>
         </Link>
         <i className="fas fa-bars" onClick={() => handleToggle()}></i>
         <nav className={`${menuOpen ? "showMenu" : ""}`}>
