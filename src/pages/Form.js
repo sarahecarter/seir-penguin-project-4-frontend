@@ -32,7 +32,7 @@ const Form = ({initialFlashcard, handleSubmit, buttonLabel}) => {
             <form onSubmit={handleSubmission}>
         
         <div className="form-container">
-            <label for="topic">Topic:</label>
+            <label htmlFor="topic">Topic:</label>
             <input
                 type="text"
                 onChange={handleChange}
@@ -43,7 +43,7 @@ const Form = ({initialFlashcard, handleSubmit, buttonLabel}) => {
         </div>
 
         <div className="form-container">
-            <label for="term">Term:</label>
+            <label htmlFor="term">Term:</label>
             <input
                 type="text"
                 onChange={handleChange}
@@ -54,7 +54,7 @@ const Form = ({initialFlashcard, handleSubmit, buttonLabel}) => {
         </div>
 
         <div className="form-container">
-            <label for="definition">Definition:</label>
+            <label htmlFor="definition">Definition:</label>
             <textarea
                 type="text"
                 onChange={handleChange}

@@ -4,6 +4,7 @@ import SingleCard from "./pages/SingleCard";
 import Form from "./pages/Form";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Study from "./pages/Study";
 // Import hooks from React
 import { useState, useEffect } from "react";
 // Import components from React Router
@@ -29,6 +30,9 @@ function App() {
 
   // State to hold target flashcard for edit form
   const [targetFlashcard, setTargetFlashcard] = useState(nullFlashcard)
+
+  // State to hold card topics 
+  const [topics, setTopics] = useState([])
 
   //////////////////////////////
   // Functions
@@ -81,7 +85,6 @@ function App() {
     await fetch(url + flashcard.id, {
       method: "delete"
     })
-
     getFlashcards()
     navigate("/")
   }
@@ -90,7 +93,7 @@ function App() {
   // useEffects
   //////////////////////////////
   useEffect(() => {
-    getFlashcards()
+    getFlashcards();
   }, [])
 
   return (
@@ -113,6 +116,7 @@ function App() {
             handleSubmit={updateFlashcard}
             buttonLabel="Update card"
           />}/>
+          {/* <Route path="/study" element={<Study flashcards={flashcards}/>}/> */}
         </Routes>
       <Footer/>
     </div>

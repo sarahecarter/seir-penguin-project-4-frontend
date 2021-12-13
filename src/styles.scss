@@ -7,7 +7,10 @@
 // Variables/ Mixins
 //////////////////////
 $title-font: 'Playfair Display', serif;
-$accent-color: black;
+$primary-color: #083247;
+$seconday-color: rgb(82, 145, 156);
+$tertiary-color: #041822;
+$accent-color: #f8f8f8;
 
 @mixin body-font {
     font-family: 'Montserrat', sans-serif;
@@ -23,17 +26,19 @@ $accent-color: black;
     padding: 5px;
     border-radius: 5px;
     background-color: $accent-color;
-    color: white;
+    color: black;
     border: none;
     @include body-font();
 }
 
 @mixin card {
     color: black;
+    background-color: $accent-color;
     border: 1px solid $accent-color;
     margin: 10px;
     border-radius: 6px;
     padding: 10px;
+    box-shadow: 10px 10px 10px $primary-color;
 }
 
 //////////////////////
@@ -43,6 +48,12 @@ $accent-color: black;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    transition: .5s;
+}
+
+body {
+    background: linear-gradient(311deg, rgba(8,50,71,1) 0%, rgba(45,86,107,1) 85%);
+    background-attachment: fixed;
 }
 
 a {
@@ -57,6 +68,11 @@ button:hover {
     @include button();
     display: block;
     margin: auto;
+}
+
+.return:hover {
+    background-color: $tertiary-color;
+    color: $accent-color;
 }
 
 //////////////////////
@@ -74,13 +90,14 @@ header {
         margin-bottom: 10px;
         font-family: $title-font;
         font-size: 2em;
-        color: black;
+        color: $accent-color;
         z-index: 20;
     }
 
     i {
         font-size: 1.6em;
         cursor: pointer;
+        color: $accent-color;
     }
 }
 
@@ -90,7 +107,7 @@ nav {
     display: none;
 
     a {
-        color: black;
+        color: $accent-color;
         cursor: pointer;
         margin: 5px;
         width: 100%;
@@ -98,6 +115,10 @@ nav {
 
     ul {
         list-style-type: none;
+    }
+
+    li:hover {
+        color: rgb(163, 162, 162);
     }
 
 }
@@ -167,6 +188,11 @@ select {
     }
 }
 
+.card:hover {
+    transform: scale(1.01);
+    box-shadow: none;
+}
+
 .cards-container {
     display: flex;
     flex-direction: column;
@@ -180,6 +206,7 @@ select {
 .single-card {
     @include card();
     margin: 20px;
+    padding: 15px;
     width: 90%;
     height: 200px;
     display: flex;
@@ -202,26 +229,39 @@ select {
     
         button {
             @include button();
+            background-color: $seconday-color;
+            color: $accent-color;
             margin: 5px;
             font-size: 1.1em;
             text-align: center;
             width: 30px;
         }
     }
-}
 
+    .card-btns button:hover {
+        background-color: $primary-color;
+    }
+}
 
 //////////////////////
 // Form
 //////////////////////
 form {
     margin: 20px auto;
+    width: 90%;
     max-width: 550px;
+    background-color: $accent-color;
+    border-radius: 5px;
+    padding: 10px;
 
 
     label {
         @include body-font-bold();
         margin: 5px;
+    }
+
+    select {
+        margin-bottom: 10px;
     }
 
     input, textarea {
@@ -241,9 +281,15 @@ form {
 
     input[type="submit"] {
         @include button();
+        background-color: $seconday-color;
+        color: $accent-color;
         display: block;
-        margin: auto;
+        margin: 20px auto;
         cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: $primary-color;
     }
 }
 
@@ -257,11 +303,16 @@ footer {
 
     p {
         @include body-font();
+        color: $accent-color;
         font-size: 0.8em;
     }
 
     a {
-        color: black;
+        color: $accent-color;
+    }
+
+    a:hover {
+        color: orange;
     }
 
 }
@@ -300,7 +351,8 @@ footer {
     }
 
     .card {
-        width: 500px;
+        width: 650px;
+        padding: 15px;
         display: flex;
         justify-content: space-between;
         min-height: 150px;

@@ -16,11 +16,11 @@ const SingleCard = ({flashcards, edit, deleteFlashcard}) => {
             </div>
 
             <div className="card-btns">
-                <button onClick={() => edit(flashcard)}><i class="fas fa-pen"></i></button>
-                <button onClick={() => deleteFlashcard(flashcard)}><i class="far fa-trash-alt"></i></button>
+                <button onClick={() => edit(flashcard)}><i className="fas fa-pen"></i></button>
+                <button onClick={() => deleteFlashcard(flashcard)}><i className="far fa-trash-alt"></i></button>
             </div>
         </div>
-        <Link to="/">
+        <Link to="/" className="test">
             <button className="return">Return to Main List</button>
         </Link>
     </div>
